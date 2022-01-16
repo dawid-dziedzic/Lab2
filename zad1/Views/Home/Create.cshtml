@@ -1,0 +1,25 @@
+﻿@model zad1.Models.Dane
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Form1";
+
+    int day = (DateTime.Now - Model.Number).Days;
+    string Days;
+    if (day > 0)
+    {
+        Days = day.ToString();
+    }
+    else { Days = " Error"; }
+}
+
+<div style="text-align:center;">
+    <h3>Dane z formularza</h3>
+    <div style="text-align:left;">
+        @Html.DisplayNameFor(model => model.Name):          @Html.DisplayFor(model => model.Name)
+        <br />
+        <label>Liczba dni: </label> @(Days)
+        <br />
+    </div>
+    <br />
+    <br />
+    <a asp-action="index">Powrót</a>
